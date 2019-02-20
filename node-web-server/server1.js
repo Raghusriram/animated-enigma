@@ -50,5 +50,5 @@ app.get('/aboutpage/kunal',(req,res)=>{
   res.send('<h1>kunal is bad boy</h1>')
 })
 app.listen(port,()=>{
-  console.log(`server started);
+  console.log(`server started`);
 })
