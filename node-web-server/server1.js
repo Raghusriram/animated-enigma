@@ -8,9 +8,10 @@ app.set('view engine','hbs')
 app.use(express.static(__dirname+'/public'))
 hbs.registerHelper('getcurrentyear',()=>{
    return new Date().getFullYear()
-   // new Date().toLocaleTimeString()
 })
-
+hbs.registerHelper('getcurrenttime',()=>{
+   return new Date().toLocaleTimeString()
+})
 app.use((req,res,next)=>{
   var now = new Date().toLocaleTimeString()
   var log = `${now} ${req.method} ${req.url}`
@@ -46,8 +47,12 @@ app.get ('/aboutpage',(req,res)=>{
     // currenttime : new Date().toLocaleTimeString()
   })
 })
-app.get('/aboutpage/kunal',(req,res)=>{
-  res.send('<h1>kunal is bad boy</h1>')
+app.get('/aboutpage/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    welcome : `welcome to the projects page. '/n' `,
+    message : "Check them out",
+
+  })
 })
 app.listen(port,()=>{
   console.log(`server started`);
