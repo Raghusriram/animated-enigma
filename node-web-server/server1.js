@@ -54,6 +54,11 @@ app.get('/aboutpage/projects',(req,res)=>{
 
   })
 })
+app.get('/aboutpage/projects/nothing',(req,res)=>{
+  res.render('nothing.hbs',{
+    welcome : `There is nothing to see `
+  })
+})
 app.listen(port,()=>{
   console.log(`server started`);
 })
